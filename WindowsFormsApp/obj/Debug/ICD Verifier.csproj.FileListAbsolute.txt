@@ -1,0 +1,30 @@
+D:\3.Tools\UART ICD Verifier\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+D:\3.Tools\UART ICD Verifier\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+D:\3.Tools\UART ICD Verifier\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+D:\3.Tools\UART ICD Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ICD Verifier.csproj.AssemblyReference.cache
+D:\3.Tools\UART ICD Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.fmMain.resources
+D:\3.Tools\UART ICD Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+D:\3.Tools\UART ICD Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ICD Verifier.csproj.GenerateResource.cache
+D:\3.Tools\UART ICD Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ICD Verifier.csproj.CoreCompileInputs.cache
+D:\3.Tools\UART ICD Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+D:\3.Tools\UART ICD Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+D:\local_repo\ICD_Verifier\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+D:\local_repo\ICD_Verifier\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+D:\local_repo\ICD_Verifier\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+D:\local_repo\ICD_Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ICD Verifier.csproj.AssemblyReference.cache
+D:\local_repo\ICD_Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.fmMain.resources
+D:\local_repo\ICD_Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+D:\local_repo\ICD_Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ICD Verifier.csproj.GenerateResource.cache
+D:\local_repo\ICD_Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ICD Verifier.csproj.CoreCompileInputs.cache
+D:\local_repo\ICD_Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+D:\local_repo\ICD_Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+D:\local_repo\UART_Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ICD Verifier.csproj.AssemblyReference.cache
+D:\local_repo\UART_Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ICD Verifier.csproj.GenerateResource.cache
+D:\local_repo\UART_Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ICD Verifier.csproj.CoreCompileInputs.cache
+D:\local_repo\UART_Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\UART_Verifier.fmMain.resources
+D:\local_repo\UART_Verifier\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\UART_Verifier.exe.config
+D:\local_repo\UART_Verifier\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\UART_Verifier.exe
+D:\local_repo\UART_Verifier\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\UART_Verifier.pdb
+D:\local_repo\UART_Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\UART_Verifier.Properties.Resources.resources
+D:\local_repo\UART_Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\UART_Verifier.exe
+D:\local_repo\UART_Verifier\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\UART_Verifier.pdb

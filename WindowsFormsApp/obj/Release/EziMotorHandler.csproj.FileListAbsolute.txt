@@ -1,0 +1,11 @@
+D:\local_repo\EziMotorHandler\WindowsFormsApp\bin\Release\Libs\EziMOTIONPlusR.dll
+D:\local_repo\EziMotorHandler\WindowsFormsApp\bin\Release\EziMotorHandler.exe.config
+D:\local_repo\EziMotorHandler\WindowsFormsApp\bin\Release\EziMotorHandler.exe
+D:\local_repo\EziMotorHandler\WindowsFormsApp\bin\Release\EziMotorHandler.pdb
+D:\local_repo\EziMotorHandler\WindowsFormsApp\obj\Release\EziMotorHandler.csproj.AssemblyReference.cache
+D:\local_repo\EziMotorHandler\WindowsFormsApp\obj\Release\UartTester.fmMain.resources
+D:\local_repo\EziMotorHandler\WindowsFormsApp\obj\Release\EziMotorHandler.Properties.Resources.resources
+D:\local_repo\EziMotorHandler\WindowsFormsApp\obj\Release\EziMotorHandler.csproj.GenerateResource.cache
+D:\local_repo\EziMotorHandler\WindowsFormsApp\obj\Release\EziMotorHandler.csproj.CoreCompileInputs.cache
+D:\local_repo\EziMotorHandler\WindowsFormsApp\obj\Release\EziMotorHandler.exe
+D:\local_repo\EziMotorHandler\WindowsFormsApp\obj\Release\EziMotorHandler.pdb
