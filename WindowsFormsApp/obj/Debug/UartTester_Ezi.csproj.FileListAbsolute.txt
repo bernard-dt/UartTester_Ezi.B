@@ -9,3 +9,14 @@ D:\local_repo\EziMotorHandler\WindowsFormsApp\obj\Debug\UartTester_Ezi.csproj.Ge
 D:\local_repo\EziMotorHandler\WindowsFormsApp\obj\Debug\UartTester_Ezi.csproj.CoreCompileInputs.cache
 D:\local_repo\EziMotorHandler\WindowsFormsApp\obj\Debug\EziMotorHandler.exe
 D:\local_repo\EziMotorHandler\WindowsFormsApp\obj\Debug\EziMotorHandler.pdb
+D:\local_repo\UartTester_Ezi\WindowsFormsApp\bin\Debug\Libs\EziMOTIONPlusR.dll
+D:\local_repo\UartTester_Ezi\WindowsFormsApp\bin\Debug\EziMotorHandler.exe.config
+D:\local_repo\UartTester_Ezi\WindowsFormsApp\bin\Debug\EziMotorHandler.exe
+D:\local_repo\UartTester_Ezi\WindowsFormsApp\bin\Debug\EziMotorHandler.pdb
+D:\local_repo\UartTester_Ezi\WindowsFormsApp\obj\Debug\UartTester_Ezi.csproj.AssemblyReference.cache
+D:\local_repo\UartTester_Ezi\WindowsFormsApp\obj\Debug\UartTester.fmMain.resources
+D:\local_repo\UartTester_Ezi\WindowsFormsApp\obj\Debug\EziMotorHandler.Properties.Resources.resources
+D:\local_repo\UartTester_Ezi\WindowsFormsApp\obj\Debug\UartTester_Ezi.csproj.GenerateResource.cache
+D:\local_repo\UartTester_Ezi\WindowsFormsApp\obj\Debug\UartTester_Ezi.csproj.CoreCompileInputs.cache
+D:\local_repo\UartTester_Ezi\WindowsFormsApp\obj\Debug\EziMotorHandler.exe
+D:\local_repo\UartTester_Ezi\WindowsFormsApp\obj\Debug\EziMotorHandler.pdb

@@ -45,7 +45,7 @@ namespace EziMotorApps
             _port.Write(arrCaa, 0, arrCaa.Length);
             Thread.Sleep(1000);
 
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < 41; i++)  // +1
             {
                 for (int j = 0; j < 9; j++)
                 {
@@ -135,7 +135,7 @@ namespace EziMotorApps
             _port.Write(arrReboot, 0, arrReboot.Length);
             Thread.Sleep(3000);
 
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < 41; i++)  //+1
             {
                 for (int j = 0; j < 9; j++)
                 {

@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "D:\\local_repo\\UartTester_Ezi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|d:\\local_repo\\uarttester_ezi\\windowsformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|D:\\local_repo\\UartTester_Ezi\\windowsformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|solutionrelative:windowsformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|D:\\local_repo\\UartTester_Ezi\\windowsformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|d:\\local_repo\\uarttester_ezi\\windowsformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|solutionrelative:windowsformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|D:\\local_repo\\UartTester_Ezi\\windowsformsapp\\ezimotorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|solutionrelative:windowsformsapp\\ezimotorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|D:\\local_repo\\UartTester_Ezi\\windowsformsapp\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|solutionrelative:windowsformsapp\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|D:\\local_repo\\UartTester_Ezi\\windowsformsapp\\ezimotorcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|solutionrelative:windowsformsapp\\ezimotorcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|D:\\local_repo\\UartTester_Ezi\\windowsformsapp\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|solutionrelative:windowsformsapp\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|D:\\local_repo\\UartTester_Ezi\\windowsformsapp\\ezimotorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|solutionrelative:windowsformsapp\\ezimotorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -44,13 +44,14 @@
               "RelativeDocumentMoniker": "WindowsFormsApp\\EziMotorControl.cs",
               "ToolTip": "D:\\local_repo\\UartTester_Ezi\\WindowsFormsApp\\EziMotorControl.cs",
               "RelativeToolTip": "WindowsFormsApp\\EziMotorControl.cs",
-              "ViewState": "AQIAAEMAAAAAAAAAAAAjwD0AAAAtAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAIkAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T22:28:02.963Z"
+              "WhenOpened": "2026-04-14T22:28:02.963Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "EziMotorService.cs",
               "DocumentMoniker": "D:\\local_repo\\UartTester_Ezi\\WindowsFormsApp\\EziMotorService.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp\\EziMotorService.cs",
@@ -58,7 +59,8 @@
               "RelativeToolTip": "WindowsFormsApp\\EziMotorService.cs",
               "ViewState": "AQIAAMAAAAAAAAAAAIAwwLQAAAA6AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T23:27:25.025Z"
+              "WhenOpened": "2026-04-13T23:27:25.025Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -68,7 +70,7 @@
               "RelativeDocumentMoniker": "WindowsFormsApp\\MainForm.cs",
               "ToolTip": "D:\\local_repo\\UartTester_Ezi\\WindowsFormsApp\\MainForm.cs",
               "RelativeToolTip": "WindowsFormsApp\\MainForm.cs",
-              "ViewState": "AQIAAHkCAAAAAAAAAAAowIcCAAAMAAAA",
+              "ViewState": "AQIAAEMAAAAAAAAAAAAuwEwAAABsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-14T22:34:18.708Z",
               "EditorCaption": ""
@@ -87,13 +89,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "MainForm.Designer.cs",
               "DocumentMoniker": "D:\\local_repo\\UartTester_Ezi\\WindowsFormsApp\\MainForm.Designer.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp\\MainForm.Designer.cs",
               "ToolTip": "D:\\local_repo\\UartTester_Ezi\\WindowsFormsApp\\MainForm.Designer.cs",
               "RelativeToolTip": "WindowsFormsApp\\MainForm.Designer.cs",
-              "ViewState": "AQIAAFcFAAAAAAAAAAAewGQFAABWAAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAAAwwF0EAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-14T22:34:18.724Z",
               "EditorCaption": ""

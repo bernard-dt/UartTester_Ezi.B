@@ -17,7 +17,9 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using EziMotorApps;
-
+using TextBox = System.Windows.Forms.TextBox;
+using Button = System.Windows.Forms.Button;
+using Label = System.Windows.Forms.Label;
 
 namespace UartTester
 {
@@ -27,7 +29,7 @@ namespace UartTester
     
     partial class fmMain : System.Windows.Forms.Form
     {
-        string VERSION = "1.26.4.14";
+        string VERSION = "1.6.4.14";
         int UNDEFINED = 0xFFFF1;
         private int incorrectAttempts = 0;        
         System.Windows.Forms.Timer timer_date;
@@ -173,7 +175,112 @@ namespace UartTester
                 }
             }
         }
+#if true
+        private string PromptForPassword(string title = "인증 필요", string message = "비밀번호를 입력하세요")
+        {
+            using (var dialog = new PasswordDialog(title, message))
+            {
+                return dialog.ShowDialog() == DialogResult.OK ? dialog.Password : string.Empty;
+            }
+        }
 
+        public sealed class PasswordDialog : Form
+        {
+            public string Password => _passwordBox.Text;
+
+            private readonly TextBox _passwordBox;
+            private readonly Button _okButton;
+            private readonly Button _cancelButton;
+
+            public PasswordDialog(string title = "Enter Password", string message = "비밀번호를 입력하세요")
+            {
+                // ── Form 설정 ──────────────────────────────────────────
+                Text = title;
+                FormBorderStyle = FormBorderStyle.FixedDialog;
+                StartPosition = FormStartPosition.CenterParent;
+                ClientSize = new Size(360, 160);
+                MaximizeBox = false;
+                MinimizeBox = false;
+                ShowInTaskbar = false;
+                Padding = new Padding(20);
+
+                // ── 안내 레이블 ────────────────────────────────────────
+                var label = new System.Windows.Forms.Label
+                {
+                    Text = message,
+                    AutoSize = false,
+                    Dock = DockStyle.Top,
+                    Height = 30,
+                    TextAlign = ContentAlignment.MiddleLeft,
+                    Font = new Font("Segoe UI", 9.5f)
+                };
+
+                // ── 비밀번호 입력 ──────────────────────────────────────
+                _passwordBox = new System.Windows.Forms.TextBox
+                {
+                    PasswordChar = '●',
+                    Dock = DockStyle.Top,
+                    Height = 30,
+                    Font = new Font("Segoe UI", 10f),
+                    Margin = new Padding(0, 0, 0, 10)
+                };
+
+                // ── 버튼 패널 ──────────────────────────────────────────
+                _okButton = new System.Windows.Forms.Button
+                {
+                    Text = "확인",
+                    DialogResult = DialogResult.OK,
+                    Width = 90,
+                    Height = 32,
+                    Anchor = AnchorStyles.Bottom | AnchorStyles.Right
+                };
+
+                _cancelButton = new System.Windows.Forms.Button
+                {
+                    Text = "취소",
+                    DialogResult = DialogResult.Cancel,
+                    Width = 90,
+                    Height = 32,
+                    Anchor = AnchorStyles.Bottom | AnchorStyles.Right
+                };
+
+                var buttonPanel = new FlowLayoutPanel
+                {
+                    Dock = DockStyle.Bottom,
+                    Height = 45,
+                    FlowDirection = FlowDirection.RightToLeft,
+                    Padding = new Padding(0, 6, 0, 0)
+                };
+
+                buttonPanel.Controls.AddRange(new Control[] { _cancelButton, _okButton });
+
+                // ── 레이아웃 조립 ──────────────────────────────────────
+                var contentPanel = new Panel { Dock = DockStyle.Fill, Padding = new Padding(0, 5, 0, 0) };
+                contentPanel.Controls.Add(_passwordBox);
+                contentPanel.Controls.Add(label);
+
+                Controls.Add(contentPanel);
+                Controls.Add(buttonPanel);
+
+                // ── 키보드 & 기본 버튼 ────────────────────────────────
+                AcceptButton = _okButton;
+                CancelButton = _cancelButton;
+
+                // Enter 키 → 확인
+                _passwordBox.KeyDown += (_, e) =>
+                {
+                    if (e.KeyCode == Keys.Enter) { DialogResult = DialogResult.OK; Close(); }
+                };
+            }
+
+            // 폼이 열릴 때 비밀번호 입력란에 포커스
+            protected override void OnShown(EventArgs e)
+            {
+                base.OnShown(e);
+                _passwordBox.Focus();
+            }
+        }
+#else
         private string PromptForPassword()
         {
             // 사용자로부터 비밀번호를 입력받는 InputBox를 사용 (간단한 사용자 입력 처리)
@@ -193,6 +300,7 @@ namespace UartTester
                 return string.Empty;  // 취소 버튼 눌렀을 때 빈 문자열 반환
             }
         }
+#endif
 
         public fmMain()
         {
@@ -414,11 +522,12 @@ namespace UartTester
                         }
 
                         SerialPort.Open();
-                        btOpen.Text = "Close";
+                        btOpen.Text = "■ Disconn.";
                         tsPortStatus.Text = "      Connected  :  " + SerialPort.BaudRate + " bps";
                         tsPortStatus.BackColor = System.Drawing.Color.RoyalBlue;
                         tsDate.BackColor = System.Drawing.Color.RoyalBlue;
                         gbPort.BackColor = System.Drawing.Color.RoyalBlue;
+                        btOpen.BackColor = System.Drawing.Color.Gold;
 
 
                         gbCmdLists.Enabled = true;
@@ -465,11 +574,12 @@ namespace UartTester
 
                     SerialPort.Close();
                        
-                    btOpen.Text = "Open";
+                    btOpen.Text = "▶ Connect";
                     tsPortStatus.Text = "Not Connected            ";
                     tsPortStatus.BackColor = System.Drawing.Color.SlateGray;
                     tsDate.BackColor = System.Drawing.Color.SlateGray;
                     gbPort.BackColor = System.Drawing.Color.SlateGray;  //RoyalBlue
+                    btOpen.BackColor = System.Drawing.Color.Wheat;
 
                     gbCmdLists.Enabled = false;
                     gbDevTools.Enabled = false;
@@ -754,7 +864,7 @@ namespace UartTester
 
                     SerialPort.Close();
 
-                    btOpen.Text = "Open";
+                    btOpen.Text = "▷ Connect";
                     tsPortStatus.Text = "Not Connected";
                     tsPortStatus.BackColor = System.Drawing.Color.SlateGray;
                     tsDate.BackColor = System.Drawing.Color.SlateGray;
@@ -1692,7 +1802,7 @@ namespace UartTester
             SerialPort.Write(array, 0, array.Length);
         }
 
-        private void btServoToggle_Click(object sender, EventArgs e)
+        private void btServoOnOff_Click(object sender, EventArgs e)
         {
             bool bRet;
 
@@ -1702,16 +1812,18 @@ namespace UartTester
             if (bRet)
             {
                 lbServoState.ForeColor = System.Drawing.Color.Crimson;
-                lbServoState.Text = "Servo State :  ON";
+                lbServoState.Text = "STATE : [ ON ]";
                 btAutoMeasure.Enabled = true;
                 btAutoVerify.Enabled = true;
+                btServoOnOff.Text = "   ■ Servo Off";
             }
             else
             {
                 lbServoState.ForeColor = System.Drawing.Color.Gray;
-                lbServoState.Text = "Servo State :  OFF";
+                lbServoState.Text = "STATE : [ OFF ]";
                 btAutoMeasure.Enabled = false;
                 btAutoVerify.Enabled = false;
+                btServoOnOff.Text = "   ▶ Servo On";
             }
         }
 
@@ -1719,7 +1831,7 @@ namespace UartTester
         {
             EziSvc.Disconnect();
             lbServoState.ForeColor = System.Drawing.Color.Gray;
-            lbServoState.Text = "Servo State :  OFF";
+            lbServoState.Text = "STATE : [ OFF ]";
         }
 
         private void btAutoMeasure_Click(object sender, EventArgs e)
@@ -1730,7 +1842,7 @@ namespace UartTester
             }
             else
             {
-                MessageBox.Show("Open Serial port !! ");
+                MessageBox.Show("Open Servo port !! ");
             }
         }
         private void btAutoVerify_Click(object sender, EventArgs e)
@@ -1741,7 +1853,7 @@ namespace UartTester
             }
             else
             {
-                MessageBox.Show("Open Serial port !! ");
+                MessageBox.Show("Open Servo port !! ");
             }
         }
 
@@ -1759,6 +1871,20 @@ namespace UartTester
 
             pulse = int.Parse(rtbPulse.Text);
             EziCntl.EziMoveDecrease(pulse);
+        }
+
+        private void lbCleanScreen_Click(object sender, EventArgs e)
+        {
+            rtDispAscii.Clear();
+        }
+
+        private void lbSaveScreen_Click(object sender, EventArgs e)
+        {
+            string directoryPath = @"D:\Data\UartLog";
+            string fileName = "log_" + DateTime.Now.ToString("MMddHHmmss") + ".txt";
+            string filePath = Path.Combine(directoryPath, fileName);
+
+            File.WriteAllText(filePath, rtDispAscii.Text);
         }
     }    
 }
