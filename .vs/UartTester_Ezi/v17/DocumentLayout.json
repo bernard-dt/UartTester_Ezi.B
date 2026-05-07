@@ -3,24 +3,31 @@
   "WorkspaceRootPath": "D:\\local_repo\\UartTester_Ezi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|D:\\local_repo\\UartTester_Ezi\\windowsformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|solutionrelative:windowsformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|D:\\local_repo\\UartTester_Ezi\\windowsformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|solutionrelative:windowsformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|d:\\local_repo\\uarttester_ezi\\windowsformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|solutionrelative:windowsformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|d:\\local_repo\\uarttester_ezi\\windowsformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|solutionrelative:windowsformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|D:\\local_repo\\UartTester_Ezi\\windowsformsapp\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|solutionrelative:windowsformsapp\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|D:\\local_repo\\UartTester_Ezi\\windowsformsapp\\ezimotorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|solutionrelative:windowsformsapp\\ezimotorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|D:\\local_repo\\UartTester_Ezi\\windowsformsapp\\ezimotorcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|solutionrelative:windowsformsapp\\ezimotorcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|D:\\local_repo\\UartTester_Ezi\\windowsformsapp\\ezimotorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|solutionrelative:windowsformsapp\\ezimotorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|D:\\local_repo\\UartTester_Ezi\\windowsformsapp\\properties\\settings.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBE06748-2211-49E3-9AA8-E630F239BA48}|WindowsFormsApp\\UartTester_Ezi.csproj|solutionrelative:windowsformsapp\\properties\\settings.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|UartTester_Ezi||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +37,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,7 +45,30 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
+              "Title": "UartTester_Ezi",
+              "DocumentMoniker": "D:\\local_repo\\UartTester_Ezi\\WindowsFormsApp\\UartTester_Ezi.csproj",
+              "RelativeDocumentMoniker": "WindowsFormsApp\\UartTester_Ezi.csproj",
+              "ToolTip": "D:\\local_repo\\UartTester_Ezi\\WindowsFormsApp\\UartTester_Ezi.csproj",
+              "RelativeToolTip": "WindowsFormsApp\\UartTester_Ezi.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-04-30T05:23:16.769Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Settings.Designer.cs",
+              "DocumentMoniker": "D:\\local_repo\\UartTester_Ezi\\WindowsFormsApp\\Properties\\Settings.Designer.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp\\Properties\\Settings.Designer.cs",
+              "ToolTip": "D:\\local_repo\\UartTester_Ezi\\WindowsFormsApp\\Properties\\Settings.Designer.cs",
+              "RelativeToolTip": "WindowsFormsApp\\Properties\\Settings.Designer.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAoAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T05:22:03.07Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "EziMotorControl.cs",
               "DocumentMoniker": "D:\\local_repo\\UartTester_Ezi\\WindowsFormsApp\\EziMotorControl.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp\\EziMotorControl.cs",
@@ -46,38 +76,37 @@
               "RelativeToolTip": "WindowsFormsApp\\EziMotorControl.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAIkAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T22:28:02.963Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-14T22:28:02.963Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "EziMotorService.cs",
               "DocumentMoniker": "D:\\local_repo\\UartTester_Ezi\\WindowsFormsApp\\EziMotorService.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp\\EziMotorService.cs",
               "ToolTip": "D:\\local_repo\\UartTester_Ezi\\WindowsFormsApp\\EziMotorService.cs",
               "RelativeToolTip": "WindowsFormsApp\\EziMotorService.cs",
-              "ViewState": "AQIAAMAAAAAAAAAAAIAwwLQAAAA6AAAA",
+              "ViewState": "AQIAAGsAAAAAAAAAAAAvwM0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-13T23:27:25.025Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainForm.cs",
               "DocumentMoniker": "D:\\local_repo\\UartTester_Ezi\\WindowsFormsApp\\MainForm.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp\\MainForm.cs",
               "ToolTip": "D:\\local_repo\\UartTester_Ezi\\WindowsFormsApp\\MainForm.cs",
               "RelativeToolTip": "WindowsFormsApp\\MainForm.cs",
-              "ViewState": "AQIAAEMAAAAAAAAAAAAuwEwAAABsAAAA",
+              "ViewState": "AQIAABcGAAAAAAAAAAAEwBQGAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-14T22:34:18.708Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainForm.cs [\uB514\uC790\uC778]",
               "DocumentMoniker": "D:\\local_repo\\UartTester_Ezi\\WindowsFormsApp\\MainForm.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp\\MainForm.cs",
@@ -95,7 +124,7 @@
               "RelativeDocumentMoniker": "WindowsFormsApp\\MainForm.Designer.cs",
               "ToolTip": "D:\\local_repo\\UartTester_Ezi\\WindowsFormsApp\\MainForm.Designer.cs",
               "RelativeToolTip": "WindowsFormsApp\\MainForm.Designer.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAwwF0EAAAmAAAA",
+              "ViewState": "AQIAAOoFAAAAAAAAAAAmwOoFAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-14T22:34:18.724Z",
               "EditorCaption": ""

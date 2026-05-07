@@ -20,6 +20,7 @@ using EziMotorApps;
 using TextBox = System.Windows.Forms.TextBox;
 using Button = System.Windows.Forms.Button;
 using Label = System.Windows.Forms.Label;
+using EziMotorHandler.Properties;
 
 namespace UartTester
 {
@@ -66,6 +67,7 @@ namespace UartTester
         int slAnglePrev;
         int gulNewLine;
         int gulNewLineDisp;
+        bool bOpenProcessing;
 
 
         byte[,] arrCmd = new byte[MaxOfArray, 10]
@@ -304,6 +306,9 @@ namespace UartTester
 
         public fmMain()
         {
+            string lastPort;
+            int portIdx;
+
             MainForm();
 
             ulOpenState = 0;
@@ -324,13 +329,21 @@ namespace UartTester
                 _array[i] = new byte[BUFF_LEN];
             }
 
+            lastPort = Settings.Default.LastPortName;
+            portIdx = 0;
 
             foreach (string str in portCollect)
-            {
-                Console.WriteLine(str);
+            {                
+                if (str == lastPort)
+                {
+                    portIdx = PortsEntry.Items.Count;
+                }
                 PortsEntry.Items.Add(str);
             }
-
+            if (PortsEntry.Items.Count > 0)
+            {
+                PortsEntry.SelectedIndex = portIdx;
+            }
             cbListOfCmd.SelectedIndex = 0;
             cbListOfBundle.SelectedIndex = 0;
             cbListOfFlag.SelectedIndex = 0;
@@ -352,7 +365,19 @@ namespace UartTester
 
         private async void DisplayTime(object sender, EventArgs e)
         {
-            tsDate.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            tsDate.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss     ");
+            if (ulOpenState == 0)
+            {
+                if (btOpen.BackColor == System.Drawing.Color.Wheat)
+                {
+                    btOpen.BackColor = System.Drawing.Color.Chartreuse;
+                }
+                else
+                {
+                    btOpen.BackColor = System.Drawing.Color.Wheat;
+                }
+            }
+
         }
 
         void WritetoDisp(int size)
@@ -493,15 +518,6 @@ namespace UartTester
             {
                 if (ulOpenState == 0)   // To Open
                 {
-                    if (cbDtrEnable.Checked == true)
-                    {
-                        SerialPort.DtrEnable = true;
-                    }
-                    else
-                    {
-                        SerialPort.DtrEnable = false;
-                    }
-
                     if (SerialPort.PortName != "Empty")
                     {
                         ulOpenState = 1;
@@ -521,25 +537,35 @@ namespace UartTester
                                 break;
                         }
 
+                        SerialPort.DtrEnable = cbDtrEnable.Checked;
+                        Settings.Default.LastPortName = SerialPort.PortName;
+                        Settings.Default.Save();
+
                         SerialPort.Open();
-                        btOpen.Text = "■ Disconn.";
+                        btOpen.Text = "Disconn.";
                         tsPortStatus.Text = "      Connected  :  " + SerialPort.BaudRate + " bps";
                         tsPortStatus.BackColor = System.Drawing.Color.RoyalBlue;
+                        tsNull1.BackColor = System.Drawing.Color.RoyalBlue;
+                        tsNull2.BackColor = System.Drawing.Color.RoyalBlue;
                         tsDate.BackColor = System.Drawing.Color.RoyalBlue;
                         gbPort.BackColor = System.Drawing.Color.RoyalBlue;
                         btOpen.BackColor = System.Drawing.Color.Gold;
 
-
                         gbCmdLists.Enabled = true;
-                        gbDevTools.Enabled = true;
                         gbCmdItems.Enabled = true;
-                        gbFW_Upgrade.Enabled = true;
+                        gbControls.Enabled = true;
+                        gbAngleData.Enabled = true;
+                        gbServoMotor.Enabled = true;
+                        gbResort.Enabled = true;
+                        gbAsciiCmd.Enabled = true;
+                        gbModeSelection.Enabled = true;
+                        gbReadBulk.Enabled = true;
+
                         btModeSSC.Enabled = true;
 
                         btRefresh.Enabled = false;
                         cbBaudRate.Enabled = false;
-                        PortsEntry.Enabled = false;
-                        
+                        PortsEntry.Enabled = false;                        
 
                         cbListOfCmd.SelectedIndex = 0;
                         ulCmdIdx = 0;
@@ -574,18 +600,26 @@ namespace UartTester
 
                     SerialPort.Close();
                        
-                    btOpen.Text = "▶ Connect";
-                    tsPortStatus.Text = "Not Connected            ";
+                    btOpen.Text = "Connect";
+                    tsPortStatus.Text = "      Not Connected               ";
                     tsPortStatus.BackColor = System.Drawing.Color.SlateGray;
+                    tsNull1.BackColor = System.Drawing.Color.SlateGray;
+                    tsNull2.BackColor = System.Drawing.Color.SlateGray;
                     tsDate.BackColor = System.Drawing.Color.SlateGray;
                     gbPort.BackColor = System.Drawing.Color.SlateGray;  //RoyalBlue
                     btOpen.BackColor = System.Drawing.Color.Wheat;
 
                     gbCmdLists.Enabled = false;
-                    gbDevTools.Enabled = false;
                     gbCmdItems.Enabled = false;
-                    gbFW_Upgrade.Enabled = false;
+                    gbControls.Enabled = false;
+                    gbAngleData.Enabled = false;
+                    gbServoMotor.Enabled = false;
+                    gbResort.Enabled = false;
+                    gbAsciiCmd.Enabled = false;
+                    gbModeSelection.Enabled = false;
+                    gbReadBulk.Enabled = false;
                     btModeSSC.Enabled = false;
+
 
                     PortsEntry.Enabled = true;
                     btRefresh.Enabled = true;
@@ -595,17 +629,17 @@ namespace UartTester
                     BlockingCollection<string> _dataQueue = new BlockingCollection<string>();
                     inIdx = 0;
                     outIdx = 0;
-
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+
             btOpen.Enabled = true;
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void PortsEntry_SelectedIndexChanged(object sender, EventArgs e)
         {
             if ((!SerialPort.IsOpen) && (PortsEntry.SelectedItem != null))
             {
@@ -864,9 +898,11 @@ namespace UartTester
 
                     SerialPort.Close();
 
-                    btOpen.Text = "▷ Connect";
-                    tsPortStatus.Text = "Not Connected";
+                    btOpen.Text = "Connect";
+                    tsPortStatus.Text = "      Not Connected               ";
                     tsPortStatus.BackColor = System.Drawing.Color.SlateGray;
+                    tsNull1.BackColor = System.Drawing.Color.SlateGray;
+                    tsNull2.BackColor = System.Drawing.Color.SlateGray;
                     tsDate.BackColor = System.Drawing.Color.SlateGray;
                     gbPort.BackColor = System.Drawing.Color.SlateGray;
                 }
@@ -875,11 +911,16 @@ namespace UartTester
             {
                 Console.WriteLine(ex.Message);
             }
-            gbCmdLists.Enabled = false;
-            gbDevTools.Enabled = false;
+            gbCmdLists.Enabled = false;          
             gbCmdItems.Enabled = false;
+            gbControls.Enabled = false;
+            gbAngleData.Enabled = false;
+            gbServoMotor.Enabled = false;
+            gbResort.Enabled = false;
+            gbAsciiCmd.Enabled = false;
+            gbModeSelection.Enabled = false;
+            gbReadBulk.Enabled = false;
 
-            gbFW_Upgrade.Enabled = false;
             btModeSSC.Enabled = false;
 
             PortsEntry.Enabled = true;
@@ -1540,6 +1581,41 @@ namespace UartTester
             SerialPort.Write(array, 0, array.Length);
         }
 
+        private void btMtCnt_Click(object sender, EventArgs e)
+        {
+            int idx, ulCsum;
+            uint u32Val;
+            byte bCsum;
+            byte[] array = new byte[10];
+            byte[] buf = new byte[4];
+
+            u32Val = uint.Parse(rtbMtCnt.Text);
+            buf = BitConverter.GetBytes(u32Val);
+
+            if (BitConverter.IsLittleEndian)
+            {
+                Array.Reverse(buf);
+            }
+            idx = 0;
+            bCsum = 0;
+
+            array[idx++] = 0xA4;
+            array[idx++] = 0xB4;
+            array[idx++] = 7;
+            array[idx++] = 0x05;
+            bCsum += 0x05;
+            array[idx++] = 0x04;
+            bCsum += 0x04;
+            foreach (byte dat in buf)
+            {
+                array[idx++] = dat;
+                bCsum += dat;
+            }
+            array[idx] = bCsum;
+
+            SerialPort.Write(array, 0, array.Length);
+        }
+
         private void btResort_Click(object sender, EventArgs e)
         {
             int size;
@@ -1885,6 +1961,13 @@ namespace UartTester
             string filePath = Path.Combine(directoryPath, fileName);
 
             File.WriteAllText(filePath, rtDispAscii.Text);
+
+            MessageBox.Show($"Saved as D:\\Data\\UartLog\\{fileName}");
+        }
+
+        private void gbCmdItems_Enter(object sender, EventArgs e)
+        {
+
         }
     }    
 }
