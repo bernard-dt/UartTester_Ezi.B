@@ -83,8 +83,11 @@ namespace UartTester
             this.btMode_Fine = new System.Windows.Forms.Button();
             this.btReadAngleInfo = new System.Windows.Forms.Button();
             this.gbAsciiCmd = new System.Windows.Forms.GroupBox();
+            this.chContinue = new System.Windows.Forms.CheckBox();
             this.cbHeader = new System.Windows.Forms.CheckBox();
+            this.btStopAscii = new System.Windows.Forms.Button();
             this.btWrAscii = new System.Windows.Forms.Button();
+            this.rtbAsciiDelay = new System.Windows.Forms.RichTextBox();
             this.AsciiText = new System.Windows.Forms.RichTextBox();
             this.gbReadBulk = new System.Windows.Forms.GroupBox();
             this.cbListOfBundle = new System.Windows.Forms.ComboBox();
@@ -112,6 +115,7 @@ namespace UartTester
             this.btDecrease = new System.Windows.Forms.Button();
             this.lbServoState = new System.Windows.Forms.Label();
             this.btServoOnOff = new System.Windows.Forms.Button();
+            this.btStopAuto = new System.Windows.Forms.Button();
             this.btAutoVerify = new System.Windows.Forms.Button();
             this.btAutoMeasure = new System.Windows.Forms.Button();
             this.rtbEziPort = new System.Windows.Forms.RichTextBox();
@@ -233,7 +237,7 @@ namespace UartTester
             this.gbPort.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbPort.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbPort.ForeColor = System.Drawing.Color.MediumBlue;
-            this.gbPort.Location = new System.Drawing.Point(662, 487);
+            this.gbPort.Location = new System.Drawing.Point(662, 488);
             this.gbPort.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gbPort.Name = "gbPort";
             this.gbPort.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -296,7 +300,7 @@ namespace UartTester
             this.btModeSSC.Location = new System.Drawing.Point(71, 16);
             this.btModeSSC.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btModeSSC.Name = "btModeSSC";
-            this.btModeSSC.Size = new System.Drawing.Size(68, 40);
+            this.btModeSSC.Size = new System.Drawing.Size(68, 38);
             this.btModeSSC.TabIndex = 20;
             this.btModeSSC.Text = "BiSS mode";
             this.btModeSSC.UseVisualStyleBackColor = false;
@@ -325,7 +329,7 @@ namespace UartTester
             this.gbCmdLists.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gbCmdLists.Name = "gbCmdLists";
             this.gbCmdLists.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gbCmdLists.Size = new System.Drawing.Size(140, 78);
+            this.gbCmdLists.Size = new System.Drawing.Size(140, 76);
             this.gbCmdLists.TabIndex = 16;
             this.gbCmdLists.TabStop = false;
             this.gbCmdLists.Text = "Setup Items List";
@@ -397,10 +401,10 @@ namespace UartTester
             this.btReadInfo.BackColor = System.Drawing.Color.Aqua;
             this.btReadInfo.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btReadInfo.ForeColor = System.Drawing.Color.Blue;
-            this.btReadInfo.Location = new System.Drawing.Point(70, 93);
+            this.btReadInfo.Location = new System.Drawing.Point(70, 91);
             this.btReadInfo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btReadInfo.Name = "btReadInfo";
-            this.btReadInfo.Size = new System.Drawing.Size(68, 40);
+            this.btReadInfo.Size = new System.Drawing.Size(68, 38);
             this.btReadInfo.TabIndex = 20;
             this.btReadInfo.Text = "All Info";
             this.btReadInfo.UseVisualStyleBackColor = false;
@@ -411,10 +415,10 @@ namespace UartTester
             this.btRomUpgrade.BackColor = System.Drawing.Color.OrangeRed;
             this.btRomUpgrade.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btRomUpgrade.ForeColor = System.Drawing.Color.White;
-            this.btRomUpgrade.Location = new System.Drawing.Point(71, 54);
+            this.btRomUpgrade.Location = new System.Drawing.Point(71, 53);
             this.btRomUpgrade.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btRomUpgrade.Name = "btRomUpgrade";
-            this.btRomUpgrade.Size = new System.Drawing.Size(68, 40);
+            this.btRomUpgrade.Size = new System.Drawing.Size(68, 38);
             this.btRomUpgrade.TabIndex = 0;
             this.btRomUpgrade.Text = "Update";
             this.btRomUpgrade.UseVisualStyleBackColor = false;
@@ -789,7 +793,7 @@ namespace UartTester
             this.btResortRead.Location = new System.Drawing.Point(1, 18);
             this.btResortRead.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btResortRead.Name = "btResortRead";
-            this.btResortRead.Size = new System.Drawing.Size(46, 50);
+            this.btResortRead.Size = new System.Drawing.Size(46, 42);
             this.btResortRead.TabIndex = 21;
             this.btResortRead.Text = "✔ Read";
             this.btResortRead.UseVisualStyleBackColor = false;
@@ -803,11 +807,11 @@ namespace UartTester
             this.gbModeSelection.Controls.Add(this.btMode_Fine);
             this.gbModeSelection.Enabled = false;
             this.gbModeSelection.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbModeSelection.Location = new System.Drawing.Point(520, 357);
+            this.gbModeSelection.Location = new System.Drawing.Point(520, 355);
             this.gbModeSelection.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gbModeSelection.Name = "gbModeSelection";
             this.gbModeSelection.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gbModeSelection.Size = new System.Drawing.Size(140, 62);
+            this.gbModeSelection.Size = new System.Drawing.Size(140, 58);
             this.gbModeSelection.TabIndex = 26;
             this.gbModeSelection.TabStop = false;
             this.gbModeSelection.Text = "Mode Selection";
@@ -816,10 +820,10 @@ namespace UartTester
             // 
             this.btMode_Medium.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btMode_Medium.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.btMode_Medium.Location = new System.Drawing.Point(49, 15);
+            this.btMode_Medium.Location = new System.Drawing.Point(49, 16);
             this.btMode_Medium.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btMode_Medium.Name = "btMode_Medium";
-            this.btMode_Medium.Size = new System.Drawing.Size(42, 42);
+            this.btMode_Medium.Size = new System.Drawing.Size(42, 37);
             this.btMode_Medium.TabIndex = 0;
             this.btMode_Medium.Text = "▶ [M]";
             this.btMode_Medium.UseVisualStyleBackColor = true;
@@ -829,10 +833,10 @@ namespace UartTester
             // 
             this.tMode_Coarse.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tMode_Coarse.ForeColor = System.Drawing.Color.Green;
-            this.tMode_Coarse.Location = new System.Drawing.Point(4, 15);
+            this.tMode_Coarse.Location = new System.Drawing.Point(4, 16);
             this.tMode_Coarse.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tMode_Coarse.Name = "tMode_Coarse";
-            this.tMode_Coarse.Size = new System.Drawing.Size(42, 42);
+            this.tMode_Coarse.Size = new System.Drawing.Size(42, 37);
             this.tMode_Coarse.TabIndex = 0;
             this.tMode_Coarse.Text = "▶ [C]";
             this.tMode_Coarse.UseVisualStyleBackColor = true;
@@ -842,10 +846,10 @@ namespace UartTester
             // 
             this.btMode_Fine.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btMode_Fine.ForeColor = System.Drawing.Color.Crimson;
-            this.btMode_Fine.Location = new System.Drawing.Point(95, 15);
+            this.btMode_Fine.Location = new System.Drawing.Point(95, 16);
             this.btMode_Fine.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btMode_Fine.Name = "btMode_Fine";
-            this.btMode_Fine.Size = new System.Drawing.Size(42, 42);
+            this.btMode_Fine.Size = new System.Drawing.Size(42, 37);
             this.btMode_Fine.TabIndex = 0;
             this.btMode_Fine.Text = "▶ [F]";
             this.btMode_Fine.UseVisualStyleBackColor = true;
@@ -856,10 +860,10 @@ namespace UartTester
             this.btReadAngleInfo.BackColor = System.Drawing.Color.Yellow;
             this.btReadAngleInfo.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btReadAngleInfo.ForeColor = System.Drawing.Color.Black;
-            this.btReadAngleInfo.Location = new System.Drawing.Point(2, 93);
+            this.btReadAngleInfo.Location = new System.Drawing.Point(2, 91);
             this.btReadAngleInfo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btReadAngleInfo.Name = "btReadAngleInfo";
-            this.btReadAngleInfo.Size = new System.Drawing.Size(68, 40);
+            this.btReadAngleInfo.Size = new System.Drawing.Size(68, 38);
             this.btReadAngleInfo.TabIndex = 20;
             this.btReadAngleInfo.Text = "Angle";
             this.btReadAngleInfo.UseVisualStyleBackColor = false;
@@ -868,55 +872,97 @@ namespace UartTester
             // gbAsciiCmd
             // 
             this.gbAsciiCmd.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gbAsciiCmd.Controls.Add(this.chContinue);
             this.gbAsciiCmd.Controls.Add(this.cbHeader);
+            this.gbAsciiCmd.Controls.Add(this.btStopAscii);
             this.gbAsciiCmd.Controls.Add(this.btWrAscii);
+            this.gbAsciiCmd.Controls.Add(this.rtbAsciiDelay);
             this.gbAsciiCmd.Controls.Add(this.AsciiText);
             this.gbAsciiCmd.Enabled = false;
             this.gbAsciiCmd.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbAsciiCmd.Location = new System.Drawing.Point(520, 421);
+            this.gbAsciiCmd.Location = new System.Drawing.Point(662, 388);
             this.gbAsciiCmd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gbAsciiCmd.Name = "gbAsciiCmd";
             this.gbAsciiCmd.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gbAsciiCmd.Size = new System.Drawing.Size(140, 67);
+            this.gbAsciiCmd.Size = new System.Drawing.Size(140, 98);
             this.gbAsciiCmd.TabIndex = 25;
             this.gbAsciiCmd.TabStop = false;
             this.gbAsciiCmd.Text = "Send ASCII Commnad";
+            // 
+            // chContinue
+            // 
+            this.chContinue.AutoSize = true;
+            this.chContinue.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chContinue.Location = new System.Drawing.Point(6, 19);
+            this.chContinue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.chContinue.Name = "chContinue";
+            this.chContinue.Size = new System.Drawing.Size(67, 19);
+            this.chContinue.TabIndex = 28;
+            this.chContinue.Text = "Cont.(ms)";
+            this.chContinue.UseVisualStyleBackColor = true;
             // 
             // cbHeader
             // 
             this.cbHeader.AutoSize = true;
             this.cbHeader.Checked = true;
             this.cbHeader.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbHeader.Location = new System.Drawing.Point(38, 16);
+            this.cbHeader.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbHeader.Location = new System.Drawing.Point(6, 42);
             this.cbHeader.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbHeader.Name = "cbHeader";
-            this.cbHeader.Size = new System.Drawing.Size(95, 19);
+            this.cbHeader.Size = new System.Drawing.Size(55, 19);
             this.cbHeader.TabIndex = 28;
-            this.cbHeader.Text = "Include Header";
+            this.cbHeader.Text = "Header";
             this.cbHeader.UseVisualStyleBackColor = true;
+            // 
+            // btStopAscii
+            // 
+            this.btStopAscii.BackColor = System.Drawing.Color.Transparent;
+            this.btStopAscii.Enabled = false;
+            this.btStopAscii.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btStopAscii.ForeColor = System.Drawing.Color.Black;
+            this.btStopAscii.Location = new System.Drawing.Point(73, 64);
+            this.btStopAscii.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btStopAscii.Name = "btStopAscii";
+            this.btStopAscii.Size = new System.Drawing.Size(60, 30);
+            this.btStopAscii.TabIndex = 0;
+            this.btStopAscii.Text = "■ Stop";
+            this.btStopAscii.UseVisualStyleBackColor = false;
+            this.btStopAscii.Click += new System.EventHandler(this.btStopAscii_Click);
             // 
             // btWrAscii
             // 
-            this.btWrAscii.BackColor = System.Drawing.Color.DarkGray;
+            this.btWrAscii.BackColor = System.Drawing.Color.Transparent;
             this.btWrAscii.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btWrAscii.ForeColor = System.Drawing.Color.MediumBlue;
-            this.btWrAscii.Location = new System.Drawing.Point(75, 35);
+            this.btWrAscii.ForeColor = System.Drawing.Color.Crimson;
+            this.btWrAscii.Location = new System.Drawing.Point(7, 64);
             this.btWrAscii.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btWrAscii.Name = "btWrAscii";
-            this.btWrAscii.Size = new System.Drawing.Size(59, 28);
+            this.btWrAscii.Size = new System.Drawing.Size(60, 30);
             this.btWrAscii.TabIndex = 0;
-            this.btWrAscii.Text = "Send";
+            this.btWrAscii.Text = "▶ Start";
             this.btWrAscii.UseVisualStyleBackColor = false;
             this.btWrAscii.Click += new System.EventHandler(this.btWrAscii_Click);
+            // 
+            // rtbAsciiDelay
+            // 
+            this.rtbAsciiDelay.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbAsciiDelay.Location = new System.Drawing.Point(78, 16);
+            this.rtbAsciiDelay.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.rtbAsciiDelay.Multiline = false;
+            this.rtbAsciiDelay.Name = "rtbAsciiDelay";
+            this.rtbAsciiDelay.Size = new System.Drawing.Size(55, 20);
+            this.rtbAsciiDelay.TabIndex = 13;
+            this.rtbAsciiDelay.Text = "10000";
             // 
             // AsciiText
             // 
             this.AsciiText.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AsciiText.Location = new System.Drawing.Point(5, 37);
+            this.AsciiText.Location = new System.Drawing.Point(78, 40);
             this.AsciiText.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.AsciiText.Multiline = false;
             this.AsciiText.Name = "AsciiText";
-            this.AsciiText.Size = new System.Drawing.Size(63, 24);
+            this.AsciiText.Size = new System.Drawing.Size(55, 20);
             this.AsciiText.TabIndex = 13;
             this.AsciiText.Text = "";
             // 
@@ -928,11 +974,11 @@ namespace UartTester
             this.gbReadBulk.Controls.Add(this.btReadAmp);
             this.gbReadBulk.Enabled = false;
             this.gbReadBulk.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbReadBulk.Location = new System.Drawing.Point(662, 412);
+            this.gbReadBulk.Location = new System.Drawing.Point(520, 416);
             this.gbReadBulk.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gbReadBulk.Name = "gbReadBulk";
             this.gbReadBulk.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gbReadBulk.Size = new System.Drawing.Size(140, 73);
+            this.gbReadBulk.Size = new System.Drawing.Size(140, 75);
             this.gbReadBulk.TabIndex = 26;
             this.gbReadBulk.TabStop = false;
             this.gbReadBulk.Text = "Read Bulk (Fixed Mem)";
@@ -944,10 +990,10 @@ namespace UartTester
             "1",
             "2",
             "4"});
-            this.cbListOfBundle.Location = new System.Drawing.Point(8, 17);
+            this.cbListOfBundle.Location = new System.Drawing.Point(5, 16);
             this.cbListOfBundle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbListOfBundle.Name = "cbListOfBundle";
-            this.cbListOfBundle.Size = new System.Drawing.Size(123, 23);
+            this.cbListOfBundle.Size = new System.Drawing.Size(130, 23);
             this.cbListOfBundle.TabIndex = 23;
             // 
             // btCalcDbgData
@@ -957,7 +1003,7 @@ namespace UartTester
             this.btCalcDbgData.Location = new System.Drawing.Point(72, 42);
             this.btCalcDbgData.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btCalcDbgData.Name = "btCalcDbgData";
-            this.btCalcDbgData.Size = new System.Drawing.Size(60, 28);
+            this.btCalcDbgData.Size = new System.Drawing.Size(60, 30);
             this.btCalcDbgData.TabIndex = 22;
             this.btCalcDbgData.Text = "Calc σ";
             this.btCalcDbgData.UseVisualStyleBackColor = true;
@@ -970,7 +1016,7 @@ namespace UartTester
             this.btReadAmp.Location = new System.Drawing.Point(7, 42);
             this.btReadAmp.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btReadAmp.Name = "btReadAmp";
-            this.btReadAmp.Size = new System.Drawing.Size(60, 28);
+            this.btReadAmp.Size = new System.Drawing.Size(60, 30);
             this.btReadAmp.TabIndex = 22;
             this.btReadAmp.Text = "Copy";
             this.btReadAmp.UseVisualStyleBackColor = true;
@@ -1044,11 +1090,11 @@ namespace UartTester
             this.gbControls.Enabled = false;
             this.gbControls.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbControls.ForeColor = System.Drawing.Color.MediumBlue;
-            this.gbControls.Location = new System.Drawing.Point(520, 490);
+            this.gbControls.Location = new System.Drawing.Point(520, 493);
             this.gbControls.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gbControls.Name = "gbControls";
             this.gbControls.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gbControls.Size = new System.Drawing.Size(140, 135);
+            this.gbControls.Size = new System.Drawing.Size(140, 132);
             this.gbControls.TabIndex = 32;
             this.gbControls.TabStop = false;
             this.gbControls.Text = "Controls";
@@ -1058,10 +1104,10 @@ namespace UartTester
             this.btReboot.BackColor = System.Drawing.Color.DarkOrange;
             this.btReboot.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btReboot.ForeColor = System.Drawing.Color.White;
-            this.btReboot.Location = new System.Drawing.Point(2, 54);
+            this.btReboot.Location = new System.Drawing.Point(2, 53);
             this.btReboot.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btReboot.Name = "btReboot";
-            this.btReboot.Size = new System.Drawing.Size(68, 40);
+            this.btReboot.Size = new System.Drawing.Size(68, 38);
             this.btReboot.TabIndex = 20;
             this.btReboot.Text = "Reboot";
             this.btReboot.UseVisualStyleBackColor = false;
@@ -1075,7 +1121,7 @@ namespace UartTester
             this.btMeasureCAA.Location = new System.Drawing.Point(2, 16);
             this.btMeasureCAA.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btMeasureCAA.Name = "btMeasureCAA";
-            this.btMeasureCAA.Size = new System.Drawing.Size(68, 40);
+            this.btMeasureCAA.Size = new System.Drawing.Size(68, 38);
             this.btMeasureCAA.TabIndex = 0;
             this.btMeasureCAA.Text = "Calc CAA";
             this.btMeasureCAA.UseVisualStyleBackColor = false;
@@ -1092,11 +1138,11 @@ namespace UartTester
             this.gbAngleData.Controls.Add(this.btAngleData);
             this.gbAngleData.Enabled = false;
             this.gbAngleData.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbAngleData.Location = new System.Drawing.Point(662, 21);
+            this.gbAngleData.Location = new System.Drawing.Point(662, 248);
             this.gbAngleData.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gbAngleData.Name = "gbAngleData";
             this.gbAngleData.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gbAngleData.Size = new System.Drawing.Size(140, 142);
+            this.gbAngleData.Size = new System.Drawing.Size(140, 138);
             this.gbAngleData.TabIndex = 26;
             this.gbAngleData.TabStop = false;
             this.gbAngleData.Text = "Angle data (reboot)";
@@ -1104,7 +1150,7 @@ namespace UartTester
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 85);
+            this.label3.Location = new System.Drawing.Point(9, 84);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 15);
@@ -1125,7 +1171,7 @@ namespace UartTester
             // 
             // tbPeriod
             // 
-            this.tbPeriod.Location = new System.Drawing.Point(80, 83);
+            this.tbPeriod.Location = new System.Drawing.Point(80, 82);
             this.tbPeriod.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbPeriod.Name = "tbPeriod";
             this.tbPeriod.Size = new System.Drawing.Size(50, 20);
@@ -1143,14 +1189,14 @@ namespace UartTester
             this.pnAngleOpt.Location = new System.Drawing.Point(7, 35);
             this.pnAngleOpt.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnAngleOpt.Name = "pnAngleOpt";
-            this.pnAngleOpt.Size = new System.Drawing.Size(128, 44);
+            this.pnAngleOpt.Size = new System.Drawing.Size(128, 43);
             this.pnAngleOpt.TabIndex = 27;
             // 
             // cbNewL
             // 
             this.cbNewL.AutoSize = true;
             this.cbNewL.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbNewL.Location = new System.Drawing.Point(6, 24);
+            this.cbNewL.Location = new System.Drawing.Point(6, 23);
             this.cbNewL.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbNewL.Name = "cbNewL";
             this.cbNewL.Size = new System.Drawing.Size(66, 19);
@@ -1161,7 +1207,7 @@ namespace UartTester
             // tbDegree
             // 
             this.tbDegree.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDegree.Location = new System.Drawing.Point(78, 4);
+            this.tbDegree.Location = new System.Drawing.Point(78, 5);
             this.tbDegree.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbDegree.Name = "tbDegree";
             this.tbDegree.Size = new System.Drawing.Size(42, 21);
@@ -1181,12 +1227,13 @@ namespace UartTester
             // 
             // btStopAngleData
             // 
+            this.btStopAngleData.Enabled = false;
             this.btStopAngleData.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btStopAngleData.ForeColor = System.Drawing.Color.Black;
-            this.btStopAngleData.Location = new System.Drawing.Point(73, 107);
+            this.btStopAngleData.Location = new System.Drawing.Point(73, 105);
             this.btStopAngleData.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btStopAngleData.Name = "btStopAngleData";
-            this.btStopAngleData.Size = new System.Drawing.Size(64, 31);
+            this.btStopAngleData.Size = new System.Drawing.Size(64, 30);
             this.btStopAngleData.TabIndex = 23;
             this.btStopAngleData.Text = "■ Stop";
             this.btStopAngleData.UseVisualStyleBackColor = true;
@@ -1196,10 +1243,10 @@ namespace UartTester
             // 
             this.btAngleData.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAngleData.ForeColor = System.Drawing.Color.Crimson;
-            this.btAngleData.Location = new System.Drawing.Point(4, 107);
+            this.btAngleData.Location = new System.Drawing.Point(4, 105);
             this.btAngleData.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btAngleData.Name = "btAngleData";
-            this.btAngleData.Size = new System.Drawing.Size(64, 31);
+            this.btAngleData.Size = new System.Drawing.Size(64, 30);
             this.btAngleData.TabIndex = 23;
             this.btAngleData.Text = "▶ Start";
             this.btAngleData.UseVisualStyleBackColor = true;
@@ -1213,26 +1260,27 @@ namespace UartTester
             this.gbServoMotor.Controls.Add(this.btDecrease);
             this.gbServoMotor.Controls.Add(this.lbServoState);
             this.gbServoMotor.Controls.Add(this.btServoOnOff);
+            this.gbServoMotor.Controls.Add(this.btStopAuto);
             this.gbServoMotor.Controls.Add(this.btAutoVerify);
             this.gbServoMotor.Controls.Add(this.btAutoMeasure);
             this.gbServoMotor.Controls.Add(this.rtbEziPort);
             this.gbServoMotor.Enabled = false;
             this.gbServoMotor.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbServoMotor.Location = new System.Drawing.Point(662, 165);
+            this.gbServoMotor.Location = new System.Drawing.Point(662, 20);
             this.gbServoMotor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gbServoMotor.Name = "gbServoMotor";
             this.gbServoMotor.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gbServoMotor.Size = new System.Drawing.Size(140, 168);
+            this.gbServoMotor.Size = new System.Drawing.Size(140, 162);
             this.gbServoMotor.TabIndex = 38;
             this.gbServoMotor.TabStop = false;
             this.gbServoMotor.Text = "Servo Motor Control";
             // 
             // btIncrease
             // 
-            this.btIncrease.Location = new System.Drawing.Point(94, 133);
+            this.btIncrease.Location = new System.Drawing.Point(96, 131);
             this.btIncrease.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btIncrease.Name = "btIncrease";
-            this.btIncrease.Size = new System.Drawing.Size(38, 32);
+            this.btIncrease.Size = new System.Drawing.Size(36, 30);
             this.btIncrease.TabIndex = 40;
             this.btIncrease.Text = "▶";
             this.btIncrease.UseVisualStyleBackColor = true;
@@ -1241,25 +1289,25 @@ namespace UartTester
             // rtbPulse
             // 
             this.rtbPulse.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbPulse.Location = new System.Drawing.Point(48, 136);
+            this.rtbPulse.Location = new System.Drawing.Point(49, 134);
             this.rtbPulse.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.rtbPulse.Multiline = false;
             this.rtbPulse.Name = "rtbPulse";
             this.rtbPulse.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.rtbPulse.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtbPulse.Size = new System.Drawing.Size(41, 26);
+            this.rtbPulse.Size = new System.Drawing.Size(41, 24);
             this.rtbPulse.TabIndex = 39;
             this.rtbPulse.Text = "1000";
             // 
             // btDecrease
             // 
             this.btDecrease.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDecrease.Location = new System.Drawing.Point(6, 133);
+            this.btDecrease.Location = new System.Drawing.Point(6, 131);
             this.btDecrease.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btDecrease.Name = "btDecrease";
-            this.btDecrease.Size = new System.Drawing.Size(38, 32);
+            this.btDecrease.Size = new System.Drawing.Size(36, 30);
             this.btDecrease.TabIndex = 38;
-            this.btDecrease.Text = "◀";
+            this.btDecrease.Text = "◀CCW";
             this.btDecrease.UseVisualStyleBackColor = true;
             this.btDecrease.Click += new System.EventHandler(this.btDecrease_Click);
             // 
@@ -1281,7 +1329,7 @@ namespace UartTester
             this.btServoOnOff.BackColor = System.Drawing.Color.Cornsilk;
             this.btServoOnOff.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btServoOnOff.ForeColor = System.Drawing.Color.Green;
-            this.btServoOnOff.Location = new System.Drawing.Point(5, 43);
+            this.btServoOnOff.Location = new System.Drawing.Point(5, 42);
             this.btServoOnOff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btServoOnOff.Name = "btServoOnOff";
             this.btServoOnOff.Size = new System.Drawing.Size(128, 30);
@@ -1291,19 +1339,32 @@ namespace UartTester
             this.btServoOnOff.UseVisualStyleBackColor = false;
             this.btServoOnOff.Click += new System.EventHandler(this.btServoOnOff_Click);
             // 
+            // btStopAuto
+            // 
+            this.btStopAuto.BackColor = System.Drawing.Color.Cornsilk;
+            this.btStopAuto.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btStopAuto.ForeColor = System.Drawing.Color.Crimson;
+            this.btStopAuto.Location = new System.Drawing.Point(89, 74);
+            this.btStopAuto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btStopAuto.Name = "btStopAuto";
+            this.btStopAuto.Size = new System.Drawing.Size(44, 56);
+            this.btStopAuto.TabIndex = 34;
+            this.btStopAuto.Text = "Stop";
+            this.btStopAuto.UseVisualStyleBackColor = false;
+            this.btStopAuto.Click += new System.EventHandler(this.btStopAuto_Click);
+            // 
             // btAutoVerify
             // 
             this.btAutoVerify.BackColor = System.Drawing.Color.Cornsilk;
             this.btAutoVerify.Enabled = false;
             this.btAutoVerify.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAutoVerify.ForeColor = System.Drawing.Color.Blue;
-            this.btAutoVerify.Location = new System.Drawing.Point(5, 104);
+            this.btAutoVerify.Location = new System.Drawing.Point(5, 101);
             this.btAutoVerify.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btAutoVerify.Name = "btAutoVerify";
-            this.btAutoVerify.Size = new System.Drawing.Size(128, 30);
+            this.btAutoVerify.Size = new System.Drawing.Size(83, 30);
             this.btAutoVerify.TabIndex = 34;
-            this.btAutoVerify.Text = "   🛠 Auto Verify";
-            this.btAutoVerify.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btAutoVerify.Text = "Auto Verify";
             this.btAutoVerify.UseVisualStyleBackColor = false;
             this.btAutoVerify.Click += new System.EventHandler(this.btAutoVerify_Click);
             // 
@@ -1312,14 +1373,13 @@ namespace UartTester
             this.btAutoMeasure.BackColor = System.Drawing.Color.Cornsilk;
             this.btAutoMeasure.Enabled = false;
             this.btAutoMeasure.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAutoMeasure.ForeColor = System.Drawing.Color.Crimson;
-            this.btAutoMeasure.Location = new System.Drawing.Point(5, 74);
+            this.btAutoMeasure.ForeColor = System.Drawing.Color.Magenta;
+            this.btAutoMeasure.Location = new System.Drawing.Point(5, 72);
             this.btAutoMeasure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btAutoMeasure.Name = "btAutoMeasure";
-            this.btAutoMeasure.Size = new System.Drawing.Size(128, 30);
+            this.btAutoMeasure.Size = new System.Drawing.Size(83, 30);
             this.btAutoMeasure.TabIndex = 34;
-            this.btAutoMeasure.Text = "   📊 Auto Measure";
-            this.btAutoMeasure.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btAutoMeasure.Text = "Auto Measure";
             this.btAutoMeasure.UseVisualStyleBackColor = false;
             this.btAutoMeasure.Click += new System.EventHandler(this.btAutoMeasure_Click);
             // 
@@ -1343,11 +1403,11 @@ namespace UartTester
             this.gbResort.Controls.Add(this.btResortRead);
             this.gbResort.Enabled = false;
             this.gbResort.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbResort.Location = new System.Drawing.Point(662, 335);
+            this.gbResort.Location = new System.Drawing.Point(662, 183);
             this.gbResort.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gbResort.Name = "gbResort";
             this.gbResort.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gbResort.Size = new System.Drawing.Size(140, 72);
+            this.gbResort.Size = new System.Drawing.Size(140, 64);
             this.gbResort.TabIndex = 27;
             this.gbResort.TabStop = false;
             this.gbResort.Text = "RESORT (Log)";
@@ -1359,7 +1419,7 @@ namespace UartTester
             this.btResortRecord.Location = new System.Drawing.Point(46, 18);
             this.btResortRecord.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btResortRecord.Name = "btResortRecord";
-            this.btResortRecord.Size = new System.Drawing.Size(46, 50);
+            this.btResortRecord.Size = new System.Drawing.Size(46, 42);
             this.btResortRecord.TabIndex = 22;
             this.btResortRecord.Text = "   ●    Rec";
             this.btResortRecord.UseVisualStyleBackColor = true;
@@ -1372,7 +1432,7 @@ namespace UartTester
             this.btResortClean.Location = new System.Drawing.Point(92, 18);
             this.btResortClean.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btResortClean.Name = "btResortClean";
-            this.btResortClean.Size = new System.Drawing.Size(46, 50);
+            this.btResortClean.Size = new System.Drawing.Size(46, 42);
             this.btResortClean.TabIndex = 0;
             this.btResortClean.Text = "❌ Clean";
             this.btResortClean.UseVisualStyleBackColor = true;
@@ -1484,7 +1544,7 @@ namespace UartTester
             this.tsNull2});
             this.statusStrip1.Location = new System.Drawing.Point(0, 626);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(809, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(805, 22);
             this.statusStrip1.TabIndex = 24;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -1517,7 +1577,7 @@ namespace UartTester
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 11F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(809, 648);
+            this.ClientSize = new System.Drawing.Size(805, 648);
             this.Controls.Add(this.gbAsciiCmd);
             this.Controls.Add(this.gbAngleData);
             this.Controls.Add(this.gbReadBulk);
@@ -1678,6 +1738,10 @@ namespace UartTester
         private System.Windows.Forms.ToolStripStatusLabel tsNull2;
         private System.Windows.Forms.RichTextBox rtbMtCnt;
         private System.Windows.Forms.Button btMtCnt;
+        private System.Windows.Forms.Button btStopAscii;
+        private System.Windows.Forms.CheckBox chContinue;
+        private System.Windows.Forms.RichTextBox rtbAsciiDelay;
+        private System.Windows.Forms.Button btStopAuto;
     }
 }
 

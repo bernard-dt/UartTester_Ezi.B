@@ -15,6 +15,8 @@ namespace EziMotorApps
         private readonly SynchronizationContext _syncContext;
         private EziMotorService _ezisvc;        
         private SerialPort _port;
+        private bool bAutoEziIntercept;
+
         public EziMotorControl(EziMotorService ezisvc, SerialPort port)
         {
             _syncContext = SynchronizationContext.Current;
@@ -28,6 +30,11 @@ namespace EziMotorApps
             thread1.IsBackground = true;
             thread1.Start();
         }
+
+        public void AutoEziIntercept()
+        {
+            bAutoEziIntercept = true;
+        }
         public void EziAutoMeasure_Thread()
         {
             // cre control
@@ -38,6 +45,8 @@ namespace EziMotorApps
             int[] arrEzi = { -28, -28, -27, -28, -28, -28, -27, -28, -28 };
             int s32Pos = 0;
             bool bTimeout = false, bDisconnected = false;
+
+            bAutoEziIntercept = false;
 
             _ezisvc.ClearPosition();
             WaitForMotionComplete(timeoutMs: 5000);
@@ -57,6 +66,7 @@ namespace EziMotorApps
                         bTimeout = true;
                         break;
                     }
+                    bTimeout = bAutoEziIntercept;
                     if (!_ezisvc.IsConnected)
                     {
                         bDisconnected = true;
@@ -122,12 +132,12 @@ namespace EziMotorApps
             // cre control            
             byte[] arrReboot = { 0xa4, 0xb4, 0x03, 0x0C, 0x20, 0x2C };                               // DBG_PRINT Dis
             
-
-
             // motor control 
             int[] arrEzi = { -28, -28, -27, -28, -28, -28, -27, -28, -28 };
             int s32Pos = 0;
             bool bTimeout = false, bDisconnected = false;
+
+            bAutoEziIntercept = false;
 
             _ezisvc.ClearPosition();
             WaitForMotionComplete(timeoutMs: 5000);
@@ -147,6 +157,7 @@ namespace EziMotorApps
                         bTimeout = true;
                         break;
                     }
+                    bTimeout = bAutoEziIntercept;
                     if (!_ezisvc.IsConnected)
                     {
                         bDisconnected = true;

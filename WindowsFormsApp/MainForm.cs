@@ -30,12 +30,13 @@ namespace UartTester
     
     partial class fmMain : System.Windows.Forms.Form
     {
-        string VERSION = "1.6.4.14";
+        string VERSION = "1.6.5.20";
         int UNDEFINED = 0xFFFF1;
         private int incorrectAttempts = 0;        
         System.Windows.Forms.Timer timer_date;
         System.Windows.Forms.Timer timer_angleStr;
         System.Windows.Forms.Timer timer_angleDat;
+        System.Windows.Forms.Timer timer_Ascii;
 
         const int BUFF_LOOP = 40;
         const int BUFF_LEN = 1024 * 2;
@@ -361,6 +362,10 @@ namespace UartTester
             timer_angleDat = new System.Windows.Forms.Timer();
             timer_angleDat.Interval = AngleDataTimer;
             timer_angleDat.Tick += Timer_AngleData;
+
+            timer_Ascii = new System.Windows.Forms.Timer();
+            timer_Ascii.Interval = 1000;
+            timer_Ascii.Tick += Timer_AsciiSend;
         }
 
         private async void DisplayTime(object sender, EventArgs e)
@@ -743,9 +748,9 @@ namespace UartTester
             SerialPort.Write(array, 0, len + 3);
         }
 
-        private void btWrAscii_Click(object sender, EventArgs e)
+        private async void Timer_AsciiSend(object sender, EventArgs e)
         {
-            if(cbHeader.Checked == true)
+            if (cbHeader.Checked == true)
             {
                 int idx = 0;
                 byte ascii_len, len;
@@ -778,6 +783,69 @@ namespace UartTester
                 byte[] array = new byte[60];
                 array = System.Text.Encoding.Default.GetBytes(AsciiText.Text);
                 SerialPort.Write(array, 0, array.Length);
+            }
+        }
+
+        private void btStopAscii_Click(object sender, EventArgs e)
+        {
+            timer_Ascii.Stop();
+            btWrAscii.Enabled = true;
+            btStopAscii.Enabled = false;
+        }
+
+        private void btWrAscii_Click(object sender, EventArgs e)
+        {
+            if (chContinue.Checked == true)
+            {
+                int delay;
+                if (int.TryParse(rtbAsciiDelay.Text, out delay))
+                {
+                    timer_Ascii.Interval = delay;
+                    timer_Ascii.Start();
+                    btWrAscii.Enabled = false;
+                    btStopAscii.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Input Number !!");
+                }
+            }
+            else
+            { 
+                if (cbHeader.Checked == true)
+                {
+                    int idx = 0;
+                    byte ascii_len, len;
+                    byte[] array = new byte[45];
+                    byte checksum = 0;
+                    byte[] ascii = new byte[40];
+
+                    ascii = System.Text.Encoding.Default.GetBytes(AsciiText.Text);
+                    ascii_len = (byte)AsciiText.Text.Length;
+
+                    array[idx++] = (byte)0xa4;
+                    array[idx++] = (byte)0xb4;
+                    len = (byte)(ascii_len + 3);
+                    array[idx++] = (byte)len;
+                    array[idx++] = (byte)0xF1;
+                    array[idx++] = (byte)0x01;
+                    checksum = 0;
+                    checksum += (byte)0xF1;
+                    checksum += (byte)0x01;
+                    for (int i = 0; i < ascii_len; i++)
+                    {
+                        checksum += ascii[i];
+                        array[idx++] = (ascii[i]);
+                    }
+                    array[idx++] = checksum;
+                    SerialPort.Write(array, 0, len + 3);
+                }
+                else
+                {
+                    byte[] array = new byte[60];
+                    array = System.Text.Encoding.Default.GetBytes(AsciiText.Text);
+                    SerialPort.Write(array, 0, array.Length);
+                }
             }
         }
 
@@ -1187,6 +1255,8 @@ namespace UartTester
             }
             cbRebootOpt.Enabled = false;
             pnAngleOpt.Enabled = false;
+            btAngleData.Enabled = false;
+            btStopAngleData.Enabled = true;
         }
 
         private void StopAngleString(object sender, EventArgs e)
@@ -1215,6 +1285,8 @@ namespace UartTester
             {
                 pnAngleOpt.Enabled = true;
             }
+            btAngleData.Enabled = true;
+            btStopAngleData.Enabled = false;
         }
 
         // Running angle string printing request
@@ -1931,6 +2003,11 @@ namespace UartTester
             {
                 MessageBox.Show("Open Servo port !! ");
             }
+        }
+
+        private void btStopAuto_Click(object sender, EventArgs e)
+        {
+            EziCntl.AutoEziIntercept();
         }
 
         private void btIncrease_Click(object sender, EventArgs e)
