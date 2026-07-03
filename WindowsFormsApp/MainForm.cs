@@ -349,6 +349,7 @@ namespace UartTester
             cbListOfBundle.SelectedIndex = 0;
             cbListOfFlag.SelectedIndex = 0;
             cbBaudRate.SelectedIndex = 3;
+            cbListOfFlash.SelectedIndex = 0;
 
             timer_date = new System.Windows.Forms.Timer();
             timer_date.Interval = 1000;
@@ -1039,11 +1040,6 @@ namespace UartTester
             byte[] array = { 0xa4, 0xb4, 0x07, 0x0B, 0x11, 0x00, 0x00, 0x00, 0x01, 0x1d };    // Protocol Type Write 0x00 SSI, 0x01 BiSS-C
             SerialPort.Write(array, 0, array.Length);
         }
-        private void btRecodeFls_Click(object sender, EventArgs e)
-        {
-            byte[] array = { 0xa4, 0xb4, 0x03, 0xF0, 0x01, 0xF1 };                               // DBG_PRINT Dis
-            SerialPort.Write(array, 0, array.Length);
-        }
 
         private void btClearFls_Click(object sender, EventArgs e)
         {
@@ -1160,12 +1156,15 @@ namespace UartTester
 
         private void btReadDbgData_Click(object sender, EventArgs e)
         {
-            int size;         
-            const int READ_SIZE = 8000 * 4;
+            int size;
+            //const int READ_SIZE = 8000 * 4;
+            //const int READ_SIZE = 20000 * 4;
+            const int READ_COUNT = 4;
+            byte[] tempsize = new byte[4];
+            int read_size;
             string str1;
             int bundle;
-
-            byte[] ampdata = new byte[READ_SIZE];
+                        
             int byteRead = 0;
             int actual_size;
 
@@ -1180,8 +1179,29 @@ namespace UartTester
             byte[] array = { 0xA4, 0xB4, 0x03, 0xF0, 0x08, 0xF8 };
             SerialPort.Write(array, 0, array.Length);
 
+            byteRead = 0;
+            while (byteRead < READ_COUNT)
+            {
+                size = SerialPort.BytesToRead;
+                if (size + byteRead > READ_COUNT)
+                {
+                    size = READ_COUNT - byteRead;
+                }
 
-            while (byteRead < READ_SIZE)
+                byte[] temp = new byte[size];
+
+                actual_size = SerialPort.Read(temp, 0, size);
+
+                Array.Copy(temp, 0, tempsize, byteRead, actual_size);
+
+                byteRead += actual_size;
+            }
+            read_size = BitConverter.ToInt32(tempsize, 0);
+
+            byteRead = 0;
+            byte[] ampdata = new byte[read_size];
+
+            while (byteRead < read_size)
             {
                 size = SerialPort.BytesToRead;
                 byte[] temp = new byte[size];
@@ -1199,7 +1219,8 @@ namespace UartTester
             string filePath = Path.Combine(directoryPath, fileName);
 
             int newline;
-            newline = 0;
+            newline = 0;            
+
             using (StreamWriter fstream = new StreamWriter(filePath))
             {
                 
@@ -1224,7 +1245,7 @@ namespace UartTester
                 }
             }
             this.SerialPort.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
-            MessageBox.Show($"Read successfully [ fixed size : {READ_SIZE} ]");
+            MessageBox.Show($"Read successfully [ fixed size : {read_size} ]");
 #endif
         }
 
@@ -1566,23 +1587,21 @@ namespace UartTester
             byte[] buf2 = new byte[4];
             byte[] buf3 = new byte[4];
 
-            ulVal = Int32.Parse(tbVal7.Text);
-            buf1 = BitConverter.GetBytes(ulVal);
+            int flagIdx = 0;
+            flagIdx = int.Parse(cbListOfFlash.Text);
+
+            buf1 = BitConverter.GetBytes(flagIdx);
+
             if (BitConverter.IsLittleEndian)
             {
                 Array.Reverse(buf1);
             }
-            ulVal = Int32.Parse(tbVal8.Text);
+
+            ulVal = Int32.Parse(tbVal.Text);
             buf2 = BitConverter.GetBytes(ulVal);
             if (BitConverter.IsLittleEndian)
             {
                 Array.Reverse(buf2);
-            }
-            ulVal = Int32.Parse(tbVal9.Text);
-            buf3 = BitConverter.GetBytes(ulVal);
-            if (BitConverter.IsLittleEndian)
-            {
-                Array.Reverse(buf3);
             }
 
             idx = 0;
@@ -1590,7 +1609,7 @@ namespace UartTester
 
             array[idx++] = 0xA4;
             array[idx++] = 0xB4;
-            array[idx++] = 15;
+            array[idx++] = 11;
             array[idx++] = 0xF0;
             bCsum += 0xF0;
             array[idx++] = 0x12;
@@ -1605,11 +1624,7 @@ namespace UartTester
                 array[idx++] = dat;
                 bCsum += dat;
             }
-            foreach (byte dat in buf3)
-            {
-                array[idx++] = dat;
-                bCsum += dat;
-            }
+
             array[idx] = bCsum;
 
             SerialPort.Write(array, 0, array.Length);
@@ -1627,7 +1642,7 @@ namespace UartTester
 
             dVal = double.Parse(rtbUZP.Text);
             ulVal = (uint)(dVal * 100000);
-            ulVal %= 36000000;
+            //ulVal %= 36000000;
             buf = BitConverter.GetBytes(ulVal);
 
             if (BitConverter.IsLittleEndian)
@@ -2046,5 +2061,7 @@ namespace UartTester
         {
 
         }
+
+     
     }    
 }
