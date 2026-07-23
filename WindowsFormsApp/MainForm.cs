@@ -520,33 +520,32 @@ namespace UartTester
         {
             btOpen.Enabled = false;
 
-            try
+            if (ulOpenState == 0)   // To Open
             {
-                if (ulOpenState == 0)   // To Open
+                if (SerialPort.PortName != "Empty")
                 {
-                    if (SerialPort.PortName != "Empty")
+                    ulOpenState = 1;
+                    switch (cbBaudRate.SelectedIndex)
                     {
-                        ulOpenState = 1;
-                        switch(cbBaudRate.SelectedIndex)
-                        {
-                            case 0:
-                                SerialPort.BaudRate = 9600;
-                                break;
-                            case 1:
-                                SerialPort.BaudRate = 19200;
-                                break;
-                            case 2:
-                                SerialPort.BaudRate = 38400;
-                                break;
-                            case 3:
-                                SerialPort.BaudRate = 115200;
-                                break;
-                        }
+                        case 0:
+                            SerialPort.BaudRate = 9600;
+                            break;
+                        case 1:
+                            SerialPort.BaudRate = 19200;
+                            break;
+                        case 2:
+                            SerialPort.BaudRate = 38400;
+                            break;
+                        case 3:
+                            SerialPort.BaudRate = 115200;
+                            break;
+                    }
 
-                        SerialPort.DtrEnable = cbDtrEnable.Checked;
-                        Settings.Default.LastPortName = SerialPort.PortName;
-                        Settings.Default.Save();
-
+                    SerialPort.DtrEnable = cbDtrEnable.Checked;
+                    Settings.Default.LastPortName = SerialPort.PortName;
+                    Settings.Default.Save();
+                    try
+                    {
                         SerialPort.Open();
                         btOpen.Text = "Disconn.";
                         tsPortStatus.Text = "      Connected  :  " + SerialPort.BaudRate + " bps";
@@ -571,7 +570,7 @@ namespace UartTester
 
                         btRefresh.Enabled = false;
                         cbBaudRate.Enabled = false;
-                        PortsEntry.Enabled = false;                        
+                        PortsEntry.Enabled = false;
 
                         cbListOfCmd.SelectedIndex = 0;
                         ulCmdIdx = 0;
@@ -580,12 +579,21 @@ namespace UartTester
                         byte[] array = { 0xa4, 0xb4, 0x03, 0x01, 0x01, 0x02 };     // Mode change Req
                         SerialPort.Write(array, 0, array.Length);
                     }
+                    catch
+                    {
+                        btOpen.Enabled = true;
+                        ulOpenState = 0;
+                        MessageBox.Show("Port is Not Exist!");
+                    }
                 }
-                else    // To Close
-                {
-                    ulOpenState = 0;
+            }
+            else    // To Close
+            {
+                ulOpenState = 0;
 
-                    //SerialPort.DtrEnable = false;
+                //SerialPort.DtrEnable = false;
+                try
+                {
                     SerialPort.DiscardInBuffer();
                     SerialPort.DiscardOutBuffer();
 
@@ -593,7 +601,18 @@ namespace UartTester
                     {
                         Thread.Sleep(10);
                     }
+                    SerialPort.Close();
+                }
+                catch
+                {
+                    //ForceReleaseSerialHandle(SerialPort);
+                    MessageBox.Show("포트 연결이 끊어져 프로그램을 종료합니다.", "오류",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
 
+                }
+                finally
+                {
                     if (timer_angleStr.Enabled)
                     {
                         timer_angleStr.Stop();
@@ -604,8 +623,6 @@ namespace UartTester
                         timer_angleDat.Stop();
                     }
 
-                    SerialPort.Close();
-                       
                     btOpen.Text = "Connect";
                     tsPortStatus.Text = "      Not Connected               ";
                     tsPortStatus.BackColor = System.Drawing.Color.SlateGray;
@@ -636,12 +653,9 @@ namespace UartTester
                     inIdx = 0;
                     outIdx = 0;
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            }           
 
+         
             btOpen.Enabled = true;
         }
 
